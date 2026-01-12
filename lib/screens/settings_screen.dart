@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskflow/database/user_database.dart';
 import 'package:taskflow/model/user_model.dart';
+import 'package:taskflow/screens/user_profile_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -99,19 +100,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   width: 10.0,
                 ),
                 Switch(
-                      value: users[0].isReminderOn,
-                      onChanged: (value) {
-                        setState(() {
-                          UserDatabase.instance.update(User(
-                              isReminderOn: value,
-                              id: users[0].id));
-                          refreshNotes();
-                        });
-                      },
-                      activeTrackColor: Colors.green[500],
-                      activeColor: Colors.white,
-                    ),
+                  value: users.isNotEmpty ? users[0].isReminderOn : true,
+                  onChanged: users.isEmpty
+                      ? null
+                      : (value) {
+                          setState(() {
+                            UserDatabase.instance.update(
+                              User(isReminderOn: value, id: users[0].id),
+                            );
+                            refreshNotes();
+                          });
+                        },
+                  activeTrackColor: Colors.green[500],
+                  activeColor: Colors.white,
+                ),
               ],
+            ),
+            const SizedBox(height: 18.0),
+            ListTile(
+              contentPadding: const EdgeInsets.only(right: 20.0),
+              title: const Text(
+                'Profile',
+                style: TextStyle(color: Colors.black, fontSize: 22.0),
+              ),
+              trailing: const Icon(Icons.chevron_right_rounded),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const UserProfileScreen(),
+                  ),
+                );
+              },
             ),
             Text(
               'Version',

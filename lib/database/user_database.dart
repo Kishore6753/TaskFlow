@@ -21,7 +21,16 @@ class UserDatabase {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(path, version: 1, onCreate: _createDB);
+    // Keep version=1 (avoid complex migrations for this template),
+    // but ensure newer tables exist via onOpen.
+    return await openDatabase(
+      path,
+      version: 1,
+      onCreate: _createDB,
+      onOpen: (db) async {
+        await _ensureAdditionalTables(db);
+      },
+    );
   }
 
   Future _createDB(Database db, int version) async {
@@ -33,6 +42,19 @@ CREATE TABLE $tableNotes (
   ${UserFields.id} $idType, 
   ${UserFields.isReminderOn} $boolType
   )
+''');
+
+    await _ensureAdditionalTables(db);
+  }
+
+  Future<void> _ensureAdditionalTables(Database db) async {
+    // User Profile single-row table used by the Profile screen.
+    await db.execute('''
+CREATE TABLE IF NOT EXISTS user_profile(
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  age INTEGER NOT NULL
+)
 ''');
   }
 
