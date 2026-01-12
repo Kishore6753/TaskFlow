@@ -62,7 +62,6 @@ class _CustomListScreenState extends State<CustomListScreen> {
         ),
         backgroundColor: Color(int.parse(widget.color!)),
         appBar: AppBar(
-          brightness: Brightness.dark,
           elevation: 0.0,
           backgroundColor: Color(int.parse(widget.color!)),
           title: Text(widget.listName!),

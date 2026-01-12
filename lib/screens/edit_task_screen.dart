@@ -111,7 +111,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        brightness: Brightness.dark,
         actions: [
           IconButton(
               onPressed: () {

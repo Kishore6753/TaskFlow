@@ -48,7 +48,6 @@ class _AddCustomListState extends State<AddCustomList> {
                 ))
           ],
           elevation: 0.0,
-          brightness: Brightness.dark,
           backgroundColor: Colors.blue[700],
           title: Text(
             'Add Custom List',

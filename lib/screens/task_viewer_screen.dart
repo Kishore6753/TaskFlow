@@ -61,7 +61,6 @@ class _TaskvieweVStateScreen extends State<TaskViewerScreen> {
     return Scaffold(
       backgroundColor: Colors.blue[700],
       appBar: AppBar(
-        brightness: Brightness.dark,
         elevation: 0.0,
         actions: [
           IconButton(

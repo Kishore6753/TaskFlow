@@ -61,7 +61,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
-        brightness: Brightness.dark,
         backgroundColor: Colors.blue[700],
         leading: IconButton(
             onPressed: () {

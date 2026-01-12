@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taskflow/database/custom_list_database.dart';
 import 'package:taskflow/model/custom_list_model.dart';
 import 'package:taskflow/screens/add_custom_list_screen.dart';
-import 'package:taskflow/screens/all_tasks_screen.dart';
 import 'package:taskflow/screens/custom_list_screen.dart';
-import 'package:taskflow/screens/important_screen.dart';
 import 'package:taskflow/screens/my_day_screen.dart';
 import 'package:taskflow/screens/settings_screen.dart';
 import 'package:taskflow/widgets/home_screen_tile.dart';
@@ -42,7 +40,6 @@ class _HomeState extends State<Home> {
       backgroundColor: Color(0xffF7F7F7),
       appBar: AppBar(
         elevation: 0.0,
-        brightness: Brightness.dark,
         backgroundColor: Colors.blue[700],
         title: Text(
           'TaskFlow',

@@ -16,7 +16,6 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          brightness: Brightness.light,
           elevation: 0.0,
           backgroundColor: Colors.white,
           title: Row(

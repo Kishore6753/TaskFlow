@@ -52,7 +52,6 @@ class _MyDayState extends State<MyDay> {
       ),
       backgroundColor: Color(0xff788BFF),
       appBar: AppBar(
-        brightness: Brightness.dark,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,

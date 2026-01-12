@@ -101,7 +101,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       appBar: AppBar(
         actions: [
           IconButton(
-            tooltip: 'Create task',
+              tooltip: 'Create task',
               onPressed: () {
                 if (nameController.text.length == 0) {
                 } else {
@@ -122,18 +122,15 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   Navigator.pop(context);
                   if (users[0].isReminderOn) {
                     NotificationApi.showSheduleNotification(
-                      sheduledDate: DateTime(
-                          selectedDate.year,
-                          selectedDate.month,
-                          selectedDate.day,
-                          selectedTime.hour,
-                          selectedTime.minute), 
-                          title: nameController.text, 
-                          body: 'You have a due task'
-                          );
-                  } else {
-                    
-                  }
+                        sheduledDate: DateTime(
+                            selectedDate.year,
+                            selectedDate.month,
+                            selectedDate.day,
+                            selectedTime.hour,
+                            selectedTime.minute),
+                        title: nameController.text,
+                        body: 'You have a due task');
+                  } else {}
                 }
               },
               icon: Icon(Icons.done))
@@ -146,7 +143,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         elevation: 0.0,
-        brightness: Brightness.dark,
         backgroundColor: Colors.blue[700],
         title: Text('Add New Task', style: TextStyle(color: Colors.white)),
       ),
